@@ -35,4 +35,9 @@
   * Neekey
 
 * Choose a package manager
+  
   * npm
+
+## Django環境構築
+
+## 
