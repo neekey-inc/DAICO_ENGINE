@@ -29,7 +29,6 @@ import Logo from '~/components/Logo.vue'
 
 export default {
   components: {Logo},
-  head: {title: '【代行ENGINE】代行業を一括で検索・比較出来るサイト'},
 }
 </script>
 
