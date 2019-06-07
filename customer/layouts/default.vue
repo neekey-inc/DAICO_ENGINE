@@ -7,10 +7,10 @@
       <el-dropdown>
         <i class="el-icon-arrow-down el-icon-menu"></i>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><a @click="$router.push({name:'pamphlet-company'})">運営会社：Neekey.inc</a></el-dropdown-item>
           <el-dropdown-item><a @click="$router.push({name:'about'})">代行ENGINEとは？</a></el-dropdown-item>
-          <el-dropdown-item>よくある質問</el-dropdown-item>
-          <el-dropdown-item>お問い合わせ</el-dropdown-item>
+          <el-dropdown-item><a @click="$router.push({name:'about'})">運営会社：Neekey.inc</a></el-dropdown-item>
+          <el-dropdown-item><a @click="$router.push({name:'question'})">よくある質問</a></el-dropdown-item>
+          <el-dropdown-item><a @click="$router.push({name:'contact'})">お問い合わせ</a></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </header>
