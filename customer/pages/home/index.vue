@@ -3,6 +3,7 @@
     <h1>国内1000社以上の代行会社を検索・比較・予約ができるサイト！</h1>
     <h3><i class="el-icon-search"></i>カテゴリ一括検索 | <i class="el-icon-check"></i>簡単比較 | <i class="el-icon-thumb"></i>サイト内で予約完了</h3>
     <h1>代行一覧</h1>
+    <a @click="$router.push({name:'category'})"><el-link type="primary">一覧へ</el-link></a>
     <el-table
       :data="tableData"
       border
