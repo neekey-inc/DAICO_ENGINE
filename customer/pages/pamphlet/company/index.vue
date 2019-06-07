@@ -1,5 +1,5 @@
 <template>
-  <h1>aaa</h1>
+  <h1>企業様へ</h1>
 </template>
 
 <script>

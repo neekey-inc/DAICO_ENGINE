@@ -5,8 +5,8 @@
       <a @click="$router.push({name:'pamphlet-company'})"><el-link type="primary">企業様へ</el-link></a>
       <a @click="$router.push({name:'pamphlet-service'})"><el-link type="primary">代行ENGINEとは</el-link></a>
       <el-row>
-        <el-button><a @click="$router.push({name:'home'})">ロゴ</a></el-button>
-        <el-button type="primary">カテゴリー一覧</el-button>
+        <a @click="$router.push({name:'home'})"><el-button>ロゴ</el-button></a>
+        <a @click="$router.push({name:'category'})"><el-button type="primary">カテゴリ一覧</el-button></a>
         <el-button type="warning">マイページ</el-button>
       </el-row>
     </el-header>
