@@ -56,6 +56,8 @@ MIDDLEWARE = [
 # add this block below MIDDLEWARE
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
 )
 
 ROOT_URLCONF = 'api.urls'
