@@ -32,7 +32,7 @@ module.exports = {
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/google-analytics',
+    // '@nuxtjs/google-analytics',
   ],
 
   build: {
