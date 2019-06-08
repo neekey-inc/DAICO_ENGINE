@@ -34,6 +34,9 @@ module.exports = {
     '@nuxtjs/axios',
     // '@nuxtjs/google-analytics',
   ],
+  axios: {
+    baseURL: "http://localhost:8000/api/"
+  },
 
   build: {
     transpile: [/^element-ui/],
