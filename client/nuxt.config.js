@@ -38,6 +38,10 @@ module.exports = {
     baseURL: "http://localhost:8000/api/"
   },
 
+  axios: {
+    baseURL: "http://localhost:8000/api/"
+  },
+
   build: {
     transpile: [/^element-ui/],
     extend(config, ctx) {
