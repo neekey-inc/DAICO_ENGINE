@@ -80,8 +80,8 @@
     <h1>記事</h1>
     <div class="block">
       <el-carousel trigger="click" height="150px">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3 class="small">{{ item }}</h3>
+        <el-carousel-item v-for="article in articles" :key="article.id">
+          <img :src="article.image" class="card-img-top" >
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -89,29 +89,40 @@
 </template>
 
 <script>
-  export default {
-  data() {
-    return {
-      tableData: [{
-        date: '家事代行',
-        name: 'あなたの代わりに家事を行います',
-        address: '¥ 2500~5000'
-      }, {
-        date: '育児代行',
-        name: 'あなたの代わりに家事を行います',
-        address: '¥ 2500~5000'
-      }, {
-        date: '掃除代行',
-        name: 'あなたの代わりに家事を行います',
-        address: '¥ 2500~5000'
-      }, {
-        date: 'お墓参り代行',
-        name: 'あなたの代わりに家事を行います',
-        address: '¥ 2500~5000'
-      }]
+  export default{
+    data() {
+      return {
+        articles: [],
+        tableData: [{
+          date: '家事代行',
+          name: 'あなたの代わりに家事を行います',
+          address: '¥ 2500~5000'
+        }, {
+          date: '育児代行',
+          name: 'あなたの代わりに家事を行います',
+          address: '¥ 2500~5000'
+        }, {
+          date: '掃除代行',
+          name: 'あなたの代わりに家事を行います',
+          address: '¥ 2500~5000'
+        }, {
+          date: 'お墓参り代行',
+          name: 'あなたの代わりに家事を行います',
+          address: '¥ 2500~5000'
+        }]
+      }
+    },
+    mounted() {
+      this.fetchData()
+    },
+    methods: {
+      async fetchData() {
+        let res = await this.$axios.$get('article/')
+        this.articles = res
+        console.log('aaaa')
+      }
     }
   }
-}
 </script>
 
 <style>
