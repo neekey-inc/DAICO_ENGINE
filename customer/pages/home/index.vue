@@ -25,7 +25,7 @@
     </el-table>
     <h1>news(特集、キャンペーン)</h1>
     <div class="block">
-      <el-carousel trigger="click" height="150px">
+      <el-carousel trigger="click" height="300px">
         <el-carousel-item v-for="item in 4" :key="item">
           <h3 class="small">{{ item }}</h3>
         </el-carousel-item>
@@ -78,10 +78,13 @@
       </el-table-column>
     </el-table>
     <h1>記事</h1>
+    <a @click="$router.push({name:'article'})"><el-link type="primary">一覧へ</el-link></a>
     <div class="block">
-      <el-carousel trigger="click" height="150px">
+      <el-carousel trigger="click" height="300px">
         <el-carousel-item v-for="article in articles" :key="article.id">
-          <img :src="article.image" class="card-img-top" >
+          <a @click="$router.push({name:'article-id', params:{id:article.id}})">
+            <img :src="article.image" class="card-img-top" >
+          </a>
         </el-carousel-item>
       </el-carousel>
     </div>
