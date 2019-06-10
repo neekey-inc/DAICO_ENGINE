@@ -24,10 +24,13 @@
       </el-table-column>
     </el-table>
     <h1>news(特集、キャンペーン)</h1>
+    <a @click="$router.push({name:'news'})"><el-link type="primary">一覧へ</el-link></a>
     <div class="block">
-      <el-carousel trigger="click" height="150px">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3 class="small">{{ item }}</h3>
+      <el-carousel trigger="click" height="300px">
+        <el-carousel-item v-for="news in newses" :key="news.id">
+          <a @click="$router.push({name:'news-id', params:{id:news.id}})">
+            <img :src="news.image" class="card-img-top" >
+          </a>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -78,10 +81,13 @@
       </el-table-column>
     </el-table>
     <h1>記事</h1>
+    <a @click="$router.push({name:'article'})"><el-link type="primary">一覧へ</el-link></a>
     <div class="block">
-      <el-carousel trigger="click" height="150px">
+      <el-carousel trigger="click" height="300px">
         <el-carousel-item v-for="article in articles" :key="article.id">
-          <img :src="article.image" class="card-img-top" >
+          <a @click="$router.push({name:'article-id', params:{id:article.id}})">
+            <img :src="article.image" class="card-img-top" >
+          </a>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -93,6 +99,7 @@
     data() {
       return {
         articles: [],
+        newses: [],
         tableData: [{
           date: '家事代行',
           name: 'あなたの代わりに家事を行います',
@@ -114,11 +121,17 @@
     },
     mounted() {
       this.fetchData()
+      this.newsData()
     },
     methods: {
       async fetchData() {
         let res = await this.$axios.$get('article/')
         this.articles = res
+        console.log('aaaa')
+      },
+      async newsData() {
+        let res = await this.$axios.$get('news/')
+        this.newses = res
         console.log('aaaa')
       }
     }

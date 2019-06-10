@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import ArticleSerializer
-from .models import Article
+from .serializers import ArticleSerializer, NewsSerializer
+from .models import Article, News
 
 class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     queryset = Article.objects.all()
 
-# Create your views here.
+class NewsViewSet(viewsets.ModelViewSet):
+    serializer_class = NewsSerializer
+    queryset = News.objects.all()
+
