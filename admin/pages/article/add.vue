@@ -4,23 +4,8 @@
       <div class="col-12 text-center my-3">
         <h2 class="mb-3 display-4 text-uppercase">{{ article.title }}</h2>
       </div>
-      <!-- <div class="col-md-6 mb-4">
-        <img
-          v-if="preview"
-          class="img-fluid"
-          style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"
-          :src="preview"
-          alt
-        >
-        <img
-          v-else
-          class="img-fluid"
-          style="width: 400px; border-radius: 10px; box-shadow: 0 1rem 1rem rgba(0,0,0,.7);"
-          src="@/static/images/placeholder.png"
-        >
-      </div> -->
       <div class="col-md-4">
-        <form @submit.prevent="submitArticle">
+        <el-form @submit.prevent="submitArticle">
           <div class="form-group">
             <label for>タイトル</label>
             <input type="text" class="form-control" v-model="article.title">
@@ -45,16 +30,16 @@
                 <label for>
                   投稿日
                 </label>
-                <input v-model="article.date" type="date" class="form-control">
+                <input v-model="article.publish_start_at" type="date" class="form-control">
               </div>
             </div>
           </div>
           <div class="form-group mb-3">
             <label for>本文</label>
-            <textarea v-model="article.text" class="form-control" rows="8"></textarea>
+            <textarea v-model="article.detail" class="form-control" rows="8"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">投稿</button>
-        </form>
+        </el-form>
       </div>
     </div>
   </main>
@@ -70,10 +55,10 @@
       return {
         article: {
           title: "",
-          image: "",
+          file: "",
           category: "",
-          date: null,
-          text: ""
+          publish_start_at: null,
+          detail: ""
         },
         preview: ""
       };
@@ -84,7 +69,7 @@
         if (!files.length) {
           return;
         }
-        this.article.image = files[0];
+        this.article.file = files[0];
         this.createImage(files[0]);
       },
       createImage(file) {
