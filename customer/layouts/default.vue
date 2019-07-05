@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <el-input placeholder="例) 家事代行"></el-input><a @click="$router.push({name:'category'})"><el-button icon="el-icon-search"></el-button></a>
+      <input placeholder="例) 家事代行"></input><a @click="$router.push({name:'category'})"><el-button icon="el-icon-search"></el-button></a>
       <el-button><a @click="$router.push({name:'home'})">ロゴ</a></el-button>
       <a @click="$router.push({name:'user-sign'})"><i class="el-icon-user-solid"></i></a>
       <el-dropdown>

@@ -46,28 +46,53 @@
     <h3>家事代行５件〜１３件</h3>
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>casy</span>
+        <el-col :span="6" v-for="company_data in company_datas" :key="company_data.id">
+          <span>{{company_data.name}}</span>
+        </el-col>
       </div>
-      <div v-for="o in 1" :key="o" class="text item">
-        {{'家事代行 23区内出張費/交通費無料 調理師免許有 ご新規様はご紹介のみ受付中' }}
-        <el-button><a @click="$router.push({name:'company'})">料金と口コミを確認</a></el-button>
+      <div>
+        <el-col :span="6" v-for="company_data in company_datas" :key="company_data.id">
+          {{company_data.area1}}>{{company_data.area2}}
+          <el-button><a @click="$router.push({name:'company'})">料金と口コミを確認</a></el-button>
+        </el-col>
       </div>
     </el-card>
   </section>
 </template>
 
 <script>
-  export default {
-  data() {
-    return {
-      tableData: [{
-        date: '渋谷',
-        name: '¥2000~5000',
-        address: '★３以上'
-      },]
+  export default{
+      data() {
+        return {
+          company_datas: [],
+          tableData: [{
+            date: '渋谷',
+            name: '¥2000~5000',
+            address: '★３以上'
+          },]
+        }
+      },
+      mounted() {
+        this.fetchData()
+      },
+      methods: {
+        async fetchData() {
+          let res = await this.$axios.$get('company_data/')
+          this.company_datas = res
+        },
+      }
     }
-  }
-}
+//   export default {
+//   data() {
+//     return {
+//       tableData: [{
+//         date: '渋谷',
+//         name: '¥2000~5000',
+//         address: '★３以上'
+//       },]
+//     }
+//   }
+// }
 </script>
 
 <style>

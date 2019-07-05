@@ -1,5 +1,6 @@
 <template>
   <section>
+    <el-button type="danger"><a @click="$router.push({name:'company_data-add'})">add 会社情報</a></el-button>
     <h3>会社情報</h3>
     <el-row>
       <el-col :span="6" v-for="company_data in company_datas" :key="company_data.id">
@@ -24,6 +25,10 @@
             <div>{{company_data.cancel}}</div>
             <div>{{company_data.security}}</div>
           </teble>
+          <div style="padding: 14px;">
+            <!-- <span><el-button type="primary">{{company_data.name}}</el-button></span> -->
+            <span><a @click="$router.push({name:'company_data-edit', params:{id:company_data.id}})"><el-button type="warning">編集</el-button></a></span>
+          </div>
         </el-card>
       </el-col>
     </el-row>

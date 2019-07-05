@@ -17,4 +17,4 @@ class Company_dataSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Company_data
-        fields = ("id", "name", "category", "image")
+        fields = ("id", "name", "category", "image", "pr", "ceo", "tell", "point", "area1", "area2", "price", "address", "year", "cledit", "homepage", "staff", "pay", "security", "cancel")
